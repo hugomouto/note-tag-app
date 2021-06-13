@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 export default class NoteForm extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state ={
       noteData: {
         noteContent: '',
@@ -24,10 +24,26 @@ export default class NoteForm extends Component {
     onSubmit(this.state.noteData)
   }
 
+  componentDidMount() {
+    const { noteData } = this.props
+    console.log(noteData);
+    console.log(this.props);
+    this.setState({
+      noteData: noteData || '',
+    })
+  }
+
   render() {
     return (
       <div>
-        <textarea name="" id="" cols="30" rows="10" onChange={this.handleChange} value={this.state.noteData.noteContent}></textarea>
+        <textarea 
+          name="" 
+          id="" 
+          cols="30" 
+          rows="10" 
+          onChange={this.handleChange} 
+          value={this.state.noteData.noteContent}>
+        </textarea>
         <button onClick={this.handleSubmit}>Salvar</button>
       </div>
     )

@@ -25,3 +25,11 @@ export const getNotes = () => (
     resolve(notes);
   })
 );
+
+export const getNote = (id) => (
+  new Promise((resolve) => {
+   const notes = readNotes();
+   const noteToReturn = notes.find( note => Number(note.id) === Number(id)) 
+   resolve(noteToReturn);
+  })
+)
