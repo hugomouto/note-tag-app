@@ -5,8 +5,8 @@ export default class MenuBar extends Component {
   render() {
     return (
       <div>
-        <Link>Create Note</Link>
-        <Link>Notes List</Link>
+        <Link to='/'>Create Note</Link>
+        <Link to='/notes'>Notes List</Link>
       </div>
     )
   }
