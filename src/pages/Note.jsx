@@ -11,6 +11,7 @@ export default class Note extends Component {
       loading: true,
     }
     this.fetchNote = this.fetchNote.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -23,6 +24,10 @@ export default class Note extends Component {
     this.setState({ note, loading: false });
   }
 
+  handleSubmit(newNote){
+    CRUD.updateNote(newNote)
+  }
+
   render() {
     const { loading, note } = this.state
 
@@ -31,7 +36,7 @@ export default class Note extends Component {
         NOTA
         { loading
           ? <Loading />
-          : <NoteForm noteData={note}/>}
+          : <NoteForm noteData={note} onSubmit={this.handleSubmit}/>}
       </div>
     )
   }

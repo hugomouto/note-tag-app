@@ -33,3 +33,14 @@ export const getNote = (id) => (
    resolve(noteToReturn);
   })
 )
+
+// UPDATE
+export const updateNote = (updatedNote) => (
+  new Promise((resolve) => {
+    let notes = readNotes()
+    let noteToUpdate = notes.find( note => Number(note.id) === Number(updatedNote.id));
+    notes[notes.indexOf(noteToUpdate)] = {...updatedNote}
+    saveNotes(notes);
+    resolve('Success')
+  })
+)

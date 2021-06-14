@@ -14,9 +14,13 @@ export default class NoteForm extends Component {
 
   handleChange( {target} ) {
     const { value } = target;
-    this.setState({
-      noteData:{ noteContent: value }
+    // this.setState({
+    //   noteData:{ noteContent: value }
+    // })
+    this.setState((prevState) => ({
+      noteData : {...prevState.noteData, noteContent: value}
     })
+    ) 
   }
 
   handleSubmit() {
@@ -39,8 +43,6 @@ export default class NoteForm extends Component {
         <textarea 
           name="" 
           id="" 
-          cols="30" 
-          rows="10" 
           onChange={this.handleChange} 
           value={this.state.noteData.noteContent}>
         </textarea>
