@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import Loading from '../components/Loading'
 import NoteForm from '../components/NoteForm'
 import * as CRUD from '../services/crudFunctions';
@@ -7,6 +8,7 @@ export default class Note extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      shouldRedirect: false,
       note: null,
       loading: true,
     }
@@ -29,14 +31,19 @@ export default class Note extends Component {
     CRUD.updateNote(newNote)
   }
 
-  handleDelete(){
+  async handleDelete(){
     const { note } = this.state;
-    CRUD.deleteNote(note)
+    await CRUD.deleteNote(note)
+    this.setState({
+      shouldRedirect: true,
+    })
   }
 
   render() {
-    const { loading, note } = this.state
-
+    const { loading, note, shouldRedirect } = this.state
+    if (shouldRedirect) {
+      return <Redirect to='/notes'/>
+    }
     return (
       <div>
         NOTA

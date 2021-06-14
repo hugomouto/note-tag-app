@@ -7,7 +7,7 @@ const saveNotes = (notes) => localStorage.setItem('notes', JSON.stringify(notes)
 export const createNote = (noteData) => (
   new Promise((resolve) => {
     let notes = readNotes();
-    if (notes) {
+    if (notes && notes.length !== 0) {
       const nextId = notes[notes.length - 1].id + 1;
       const newnote = { id: nextId, ...noteData };
       notes = [...notes, newnote];

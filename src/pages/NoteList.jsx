@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 import NoteCard from '../components/NoteCard'
 import * as CRUD from '../services/crudFunctions';
