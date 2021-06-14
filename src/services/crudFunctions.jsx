@@ -44,3 +44,15 @@ export const updateNote = (updatedNote) => (
     resolve('Success')
   })
 )
+
+// DELETE
+export const deleteNote = (noteToDelete) => (
+    new Promise ((resolve) => {
+      let notes = readNotes();
+      notes = notes.filter((note) => (
+        Number(note.id) !== Number(noteToDelete.id)
+      ))
+      saveNotes(notes);
+      resolve('Success')
+    })
+)

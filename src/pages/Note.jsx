@@ -12,6 +12,7 @@ export default class Note extends Component {
     }
     this.fetchNote = this.fetchNote.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
@@ -28,6 +29,11 @@ export default class Note extends Component {
     CRUD.updateNote(newNote)
   }
 
+  handleDelete(){
+    const { note } = this.state;
+    CRUD.deleteNote(note)
+  }
+
   render() {
     const { loading, note } = this.state
 
@@ -37,6 +43,7 @@ export default class Note extends Component {
         { loading
           ? <Loading />
           : <NoteForm noteData={note} onSubmit={this.handleSubmit}/>}
+          <button onClick={this.handleDelete}>Delete</button>
       </div>
     )
   }
