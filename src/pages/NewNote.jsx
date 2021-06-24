@@ -14,7 +14,7 @@ export default class NewNote extends Component {
 
   render() {
     return (
-      <div>
+      <div className='new-note-screen flex-column'>
         <NoteForm onSubmit={this.handleSubmit}/>
       </div>
     )

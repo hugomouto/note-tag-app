@@ -45,8 +45,7 @@ export default class Note extends Component {
       return <Redirect to='/notes'/>
     }
     return (
-      <div>
-        NOTA
+      <div className='note-screen'>
         { loading
           ? <Loading />
           : <NoteForm noteData={note} onSubmit={this.handleSubmit}/>}

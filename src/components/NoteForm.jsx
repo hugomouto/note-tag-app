@@ -39,15 +39,14 @@ export default class NoteForm extends Component {
 
   render() {
     return (
-      <div>
+      <form className='note-form flex-column'>
         <textarea 
-          name="" 
-          id="" 
+          placeholder='Type your note here'
           onChange={this.handleChange} 
           value={this.state.noteData.noteContent}>
         </textarea>
-        <button onClick={this.handleSubmit}>Salvar</button>
-      </div>
+        <button className='btn-flat note-form__save' onClick={this.handleSubmit}>Save</button>
+      </form>
     )
   }
 }

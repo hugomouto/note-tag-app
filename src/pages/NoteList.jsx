@@ -34,17 +34,26 @@ export default class NoteList extends Component {
   render() {
     const { loading, notes, searchText } = this.state
     if (!notes || notes.length === 0) {
-      return `Ainda não há notas`
+      return `Não há notas`
     }
     return (
-      <div>
-        <label htmlFor="">Busca
-          <input onChange={this.handleSearch}  value={searchText} type="text" />
+      <div className='note-list-screen flex-column'>
+        <label htmlFor=""  className='note-list__search-label'>
+          <input 
+            className='note-list__search-input'
+            placeholder='Search' 
+            onChange={this.handleSearch}  
+            value={searchText} type="text" 
+            />
         </label>
-        { loading
-          ? <Loading />
-          : notes.filter((note) => note.noteContent.includes(searchText)).map(note => <NoteCard key={note.id} noteData={note}/>)
-        }
+        <div className="cards-wrapper flex-column">
+          { loading
+            ? <Loading />
+            : notes.filter((note) => note.noteContent
+            .includes(searchText))
+            .map(note => <NoteCard key={note.id} noteData={note}/>)
+          }
+        </div>
       </div>
     )
   }

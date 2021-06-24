@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 export default class MenuBar extends Component {
   render() {
     return (
-      <div>
-        <Link to='/'>Create Note</Link>
-        <Link to='/notes'>Notes List</Link>
+      <div className='menubar'>
+        <Link to='/'><i class="far fa-sticky-note"></i></Link>
+        <Link to='/notes'><i class="fas fa-list-ul"></i></Link>
       </div>
     )
   }

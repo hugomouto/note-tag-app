@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* -- GENERAL -- */
+button {
+  background-color: none;
+  border: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.btn-flat {
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 156px;
+  height: 44px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+/* -- MENUBAR -- */
+.menubar {
+  position: fixed;
+  height: 70px;
+  bottom: 0;
+  z-index: 11;
+  display: flex;
+  width: 100%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  /* background-color: #A0A3BD; */
 }
 
-.App-link {
-  color: #61dafb;
+.menubar>* {
+  text-align: center;
+  flex: 1;
+  padding: 24px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menubar i {
+  font-size: 24px;
+  color: #EFC7C2;
+}
+
+/* -- NEW NOTE SCREEN -- */
+.new-note-screen, 
+.note-list-screen,
+.note-screen {
+  height: 100vh;
+  width: 100vw;
+  background-color: #F7F7FC;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -- NOTE FORM -- */
+.note-form {
+  width: 100vw;
+  border: none;
+  height: 100%;
+  justify-content: center;
+}
+
+.note-form textarea {
+  background-color: #F7F7FC;
+  border: none;
+  resize: none;
+  height: 60%;
+  width: 100%;
+  color: #0F1112;
+  font-size: 16px;
+  padding: 0 12px;
+}
+
+.note-form__save {
+  background-color: #EFC7C2;
+  color: #F7F7FC;
+}
+
+.note-form textarea:active, 
+.note-form textarea:focus {
+  border: none;
+  outline: none;
+}
+
+/* -- NOTES LIST -- */
+.note-list-screen {
+  background-color: #F7F7FC;
+  padding: 12px;
+  position: relative;
+  overflow: scroll;
+}
+
+.note-list__search-label {
+  z-index: 10;
+  margin-top: 24px;
+  margin-bottom: 45px;
+}
+
+.note-list__search-input {
+  width: calc(100vw - 24px);
+  background: #FFFFFF;
+  padding: 0 12px;
+  border: 2px solid #D9DBE9;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 44px;
+  margin: 0 auto;
+}
+
+.cards-wrapper {
+  height: 100vh;
+  min-width: 100%;
+}
+
+.cards-wrapper::before {
+  content: '';
+  display: flex;
+  min-width: 100vw;
+  min-height: 70px;
+  z-index: 7;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(247,247,252,1);
+}
+
+.note-card {
+  background-color: #F7F7FC;
+  color: #0F1112;
+  min-height: 96px;
+  max-height: 96px;
+  width: 100%;
+  padding: 12px;
+  text-decoration: none;
+  background: #F7F7FC;
+  box-shadow: -15px -15px 56px rgba(255, 255, 255, 0.7), 5px 12px 30px rgba(4, 16, 24, 0.3);
+  border-radius: 5px;
+  margin-bottom: 24px;
 }
